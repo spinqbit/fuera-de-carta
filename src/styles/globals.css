@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-negro-profundo: #0B0B0B;
+  --color-negro-puro: #000000;
+  --color-blanco: #FFFFFF;
+  --color-naranja-intenso: #FF5A00;
+  --color-gris-metalico: #8A8A8A;
+  --color-gris-oscuro: #252525;
+
+  --font-anton: 'Anton', sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 28s linear infinite;
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes marquee-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #0B0B0B;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  /* Rectas absolutas: estética brutalista industrial */
+  * {
+    border-radius: 0 !important;
+  }
+}
+
+@layer utilities {
+  .font-anton {
+    font-family: 'Anton', sans-serif;
+  }
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+  .font-sans {
+    font-family: 'Inter', sans-serif;
+  }
+  .animate-marquee {
+    animation: marquee 28s linear infinite;
+  }
+  .animate-marquee-reverse {
+    animation: marquee-reverse 28s linear infinite;
+  }
+}
