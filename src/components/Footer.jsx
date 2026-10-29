@@ -19,7 +19,7 @@ const footerLinks = {
     { label: 'Cookies', href: '#cookies' },
   ],
   social: [
-    { label: 'Instagram', href: 'https://instagram.com', external: true },
+    { label: 'Instagram', href: 'https://www.instagram.com/fuera_de_carta_by1chef', external: true },
     { label: 'LinkedIn', href: 'https://linkedin.com', external: true },
     { label: 'YouTube', href: 'https://youtube.com', external: true },
   ]

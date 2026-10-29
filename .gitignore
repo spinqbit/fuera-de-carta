@@ -28,3 +28,4 @@ Thumbs.db
 # Fotos locales importadas manualmente (evitar subir metadatos/imagenes privadas por error)
 # Quitar esta línea cuando realmente se usen en el proyecto
 src/assets/images/
+.vercel
