@@ -61,3 +61,48 @@
     animation: marquee-reverse 28s linear infinite;
   }
 }
+
+/* Cursor personalizado: ocultar nativo */
+.custom-cursor,
+.custom-cursor * {
+  cursor: none !important;
+}
+
+/* Pausa de marquee al hover */
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Cursor personalizado circular y fluido */
+@layer base {
+  .cursor-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50% !important;
+    background-color: #ffffff;
+    transform: scale(1);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+    will-change: transform;
+    pointer-events: none;
+  }
+
+  .cursor-dot-active {
+    transform: scale(6.4);
+    background-color: rgba(255, 255, 255, 0.92);
+  }
+
+  .cursor-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Anton', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #000000;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+}

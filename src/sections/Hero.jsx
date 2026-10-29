@@ -1,10 +1,15 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 export default function Hero() {
   return (
-    <section
+    <motion.section
       id="manifiesto"
       data-bg="0"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0B0B0B]/75 border-b border-[#252525] pt-20"
     >
       {/* Iluminación ambiental muy sutil: carbón/cálido, profundidad sin saturar */}
@@ -26,21 +31,46 @@ export default function Hero() {
       />
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-16 text-center">
-        <p className="text-xs font-semibold tracking-[0.3em] text-[#8A8A8A] uppercase mb-8">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="text-xs font-semibold tracking-[0.3em] text-[#8A8A8A] uppercase mb-8">
           Fuera de Carta / 1ONE CHEF
-        </p>
+        </motion.p>
 
         {/* Título principal de impacto */}
-        <h1 className="font-anton text-5xl sm:text-7xl lg:text-8xl xl:text-[9rem] leading-[0.88] tracking-normal uppercase text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
-          HAY TALENTO QUE
-          <br />
-          TODAVÍA NO ESTÁS
-          <br />
-          <span className="text-white">VIENDO.</span>
-        </h1>
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
+          className="font-anton text-5xl sm:text-7xl lg:text-8xl xl:text-[9rem] leading-[0.88] tracking-normal uppercase text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
+          <span className="block overflow-hidden">
+            <motion.span className="block" initial={{ y: '100%' }} whileInView={{ y: '0%' }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}>
+              HAY TALENTO QUE
+            </motion.span>
+          </span>
+          <span className="block overflow-hidden">
+            <motion.span className="block" initial={{ y: '100%' }} whileInView={{ y: '0%' }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}>
+              TODAVÍA NO ESTÁS
+            </motion.span>
+          </span>
+          <span className="block overflow-hidden">
+            <motion.span className="block text-white" initial={{ y: '100%' }} whileInView={{ y: '0%' }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}>
+              VIENDO.
+            </motion.span>
+          </span>
+        </motion.h1>
 
         {/* Tarjeta central de manifiesto */}
-        <div className="bg-[#000000]/95 border border-[#252525] p-8 sm:p-12 max-w-3xl mx-auto mt-12 text-center rounded-none">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+          className="bg-[#000000]/95 border border-[#252525] p-8 sm:p-12 max-w-3xl mx-auto mt-12 text-center rounded-none">
           <p className="font-playfair text-xl sm:text-2xl text-white leading-relaxed mb-4">
             Y POR ESO NACE FUERA DE CARTA.
           </p>
@@ -48,18 +78,24 @@ export default function Hero() {
             Un espacio de visibilidad, herramientas de gestión real y comunidad para
             quienes hacen gastronomía de verdad.
           </p>
-        </div>
+        </motion.div>
 
         {/* CTA principal */}
         <div className="mt-10">
-          <a
+          <motion.a
             href="#explorar"
-            className="inline-block px-10 py-4 bg-[#FF5A00] hover:bg-[#e04f00] text-white font-anton text-base md:text-lg tracking-wider transition-colors duration-150 uppercase rounded-none"
+            data-cursor="EXPLORAR"
+            data-magnetic
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.38, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-block px-10 py-4 bg-[#FF5A00] hover:bg-[#e04f00] text-white font-anton text-base md:text-lg tracking-wider transition-all duration-200 uppercase rounded-none hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(255,90,0,0.38)] active:translate-y-0"
           >
             Explorar Plataforma
-          </a>
+          </motion.a>
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }

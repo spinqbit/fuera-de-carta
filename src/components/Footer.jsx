@@ -1,177 +1,130 @@
 import React from 'react'
-
-const footerLinks = {
-  plataforma: [
-    { label: 'Escandallo', href: '#escandallo' },
-    { label: 'Duelos', href: '#duelos' },
-    { label: 'Recetario', href: '#recetario' },
-    { label: 'Comunidad', href: '#comunidad' },
-  ],
-  empresa: [
-    { label: 'Nosotros', href: '#nosotros' },
-    { label: 'Manifiesto', href: '#manifiesto' },
-    { label: 'Prensa', href: '#prensa' },
-    { label: 'Contacto', href: '#contacto' },
-  ],
-  legal: [
-    { label: 'Privacidad', href: '#privacidad' },
-    { label: 'Términos', href: '#terminos' },
-    { label: 'Cookies', href: '#cookies' },
-  ],
-  social: [
-    { label: 'Instagram', href: 'https://www.instagram.com/fuera_de_carta_by1chef', external: true },
-    { label: 'LinkedIn', href: 'https://linkedin.com', external: true },
-    { label: 'YouTube', href: 'https://youtube.com', external: true },
-  ]
-}
+import { motion } from 'framer-motion'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer data-bg="3" className="bg-[#0B0B0B]/80 border-t border-[#252525] py-12 px-4">
+    <motion.footer
+      data-bg="3"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className="bg-[#0B0B0B]/85 border-t border-[#252525] py-14 px-4"
+    >
       <div className="max-w-6xl mx-auto">
-        
-        {/* Branding Principal */}
-        <div className="flex items-center justify-between mb-12 pb-8 border-b border-[#252525]">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 bg-black border border-[#8A8A8A] flex items-center justify-center font-anton text-[#FFFFFF] text-sm tracking-wider">
-              FDC
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-12">
+          {/* Columna 1: Branding */}
+          <div>
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-9 h-9 bg-black border border-[#8A8A8A] flex items-center justify-center font-anton text-white text-sm tracking-wider">
+                FDC
+              </div>
+              <span className="font-bold text-xs tracking-[0.22em] text-white uppercase">
+                FUERA DE CARTA{' '}
+                <span className="text-[#8A8A8A] font-normal">|</span>{' '}
+                <span className="text-[#FF5A00] font-bold">1</span>ONE CHEF
+              </span>
             </div>
-            <span className="font-bold text-sm tracking-[0.2em] text-white uppercase">
-              FUERA DE CARTA <span className="text-[#8A8A8A] font-normal">| <span className="text-[#8A8A8A] font-bold">1</span>ONE CHEF</span>
-            </span>
-          </div>
-          
-          {/* Badge industrial */}
-          <div className="px-4 py-1.5 border border-[#252525] text-xs font-mono text-[#8A8A8A] tracking-widest uppercase">
-            Industrial Kitchen OS v1.0
-          </div>
-        </div>
-
-        {/* Grid de Links */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-          
-          {/* Plataforma */}
-          <div>
-            <h4 className="font-anton text-xs tracking-wider text-white uppercase mb-4">
-              Plataforma
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.plataforma.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-[#8A8A8A] hover:text-white transition-colors duration-150"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Empresa */}
-          <div>
-            <h4 className="font-anton text-xs tracking-wider text-white uppercase mb-4">
-              Empresa
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.empresa.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-[#8A8A8A] hover:text-white transition-colors duration-150"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h4 className="font-anton text-xs tracking-wider text-white uppercase mb-4">
-              Legal
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-[#8A8A8A] hover:text-white transition-colors duration-150"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Social / Comunidad */}
-          <div>
-            <h4 className="font-anton text-xs tracking-wider text-white uppercase mb-4">
-              Comunidad
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.social.map((link) => (
-                <li key={link.label}>
-                    <a
-                    href={link.href}
-                    target={link.external ? '_blank' : undefined}
-                    rel={link.external ? 'noopener noreferrer' : undefined}
-                    className="text-sm text-[#8A8A8A] hover:text-white transition-colors duration-150 flex items-center gap-2"
-                  >
-                    <span className="w-1.5 h-1.5 bg-[#252525] rounded-none" />
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-        </div>
-
-        {/* Divisor metálico */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-[#252525] to-transparent mb-8" />
-
-        {/* Bottom Bar: Copyright + Newsletter */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          
-          {/* Copyright */}
-          <div className="text-center md:text-left">
-            <p className="text-xs text-[#8A8A8A] tracking-wider uppercase font-mono">
-              © {currentYear} Fuera de Carta. Todos los derechos reservados.
-            </p>
-            <p className="text-xs text-[#252525] tracking-wider uppercase font-mono mt-1">
-              Hecho con acero y fuego para la cocina de oficio.
+            <p className="font-playfair italic text-[#8A8A8A] text-sm leading-relaxed">
+              Gastronomía de autor, fuegos y oficio en Córdoba Capital.
             </p>
           </div>
 
-          {/* Newsletter / CTA */}
-          <div className="w-full md:w-auto">
-            <form className="flex flex-col sm:flex-row gap-3" action="#newsletter" method="POST">
-              <label htmlFor="email" className="sr-only">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Tu email para el boletín técnico"
-                className="flex-1 bg-[#0B0B0B] border border-[#252525] focus:border-[#8A8A8A] focus:outline-none px-4 py-3 text-sm text-white placeholder-[#252525] font-mono"
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 bg-transparent border border-[#8A8A8A] hover:border-white hover:text-white text-[#8A8A8A] font-anton text-sm tracking-wider transition-all duration-150 uppercase whitespace-nowrap"
-              >
-                Suscribir
-              </button>
-            </form>
+          {/* Columna 2: Navegación rápida */}
+          <div>
+            <h4 className="font-anton text-xs tracking-wider text-white uppercase mb-4">
+              Navegación
+            </h4>
+            <ul className="space-y-2.5">
+              {[
+                ['Menú', '#oficio'],
+                ['Experiencia', '#galeria'],
+                ['Sucursales Córdoba', '#reservas'],
+                ['Reservas', '#reservas'],
+              ].map(([label, href]) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    className="text-sm text-[#8A8A8A] hover:text-white transition-colors duration-200"
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
+          {/* Columna 3: Información de servicio */}
+          <div>
+            <h4 className="font-anton text-xs tracking-wider text-white uppercase mb-4">
+              Servicio
+            </h4>
+            <ul className="space-y-2.5 text-sm text-[#8A8A8A]">
+              <li>
+                <span className="block text-white font-mono text-xs uppercase tracking-widest mb-1">
+                  Horario de cocina
+                </span>
+                Mar a Dom · 19:30 a 00:30 h
+              </li>
+              <li>
+                <span className="block text-white font-mono text-xs uppercase tracking-widest mb-1">
+                  Tolerancia de reserva
+                </span>
+                15 minutos de cortesía
+              </li>
+            </ul>
+          </div>
+
+          {/* Columna 4: Redes y contacto */}
+          <div>
+            <h4 className="font-anton text-xs tracking-wider text-white uppercase mb-4">
+              Contacto
+            </h4>
+            <ul className="space-y-2.5">
+              <li>
+                <a
+                  href="https://www.instagram.com/fuera_de_carta_by1chef"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[#8A8A8A] hover:text-white transition-colors duration-200"
+                >
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[#8A8A8A] hover:text-white transition-colors duration-200"
+                >
+                  WhatsApp Reservas
+                </a>
+              </li>
+              <li>
+                <span className="text-sm text-[#8A8A8A]">
+                  Córdoba Capital, Argentina
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
 
+        {/* Línea metálica */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-[#252525] to-transparent mb-6" />
+
+        {/* Copyright */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-[#8A8A8A] tracking-wider uppercase font-mono">
+            © {currentYear} Fuera de Carta | 1ONE CHEF. Todos los derechos reservados.
+          </p>
+          <p className="text-xs text-[#252525] tracking-wider uppercase font-mono">
+            Hecho con acero y fuego para la cocina de oficio.
+          </p>
+        </div>
       </div>
-    </footer>
+    </motion.footer>
   )
 }

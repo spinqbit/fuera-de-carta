@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 const frases = [
   'Fuera de Carta',
@@ -15,8 +16,12 @@ const frases = [
 
 export default function MarqueeBanner() {
   return (
-    <section
+    <motion.section
       data-bg="1"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className="relative border-y border-[#252525] bg-[#0B0B0B]/70 py-4 md:py-6 overflow-hidden"
       aria-label="Manifiesto en movimiento"
     >
@@ -37,6 +42,6 @@ export default function MarqueeBanner() {
           </div>
         ))}
       </div>
-    </section>
+    </motion.section>
   )
 }
